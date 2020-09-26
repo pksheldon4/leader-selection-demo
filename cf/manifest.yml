@@ -7,6 +7,6 @@ applications:
     memory: 768M
     services:
       - sample-db
-    path: ../target/leader-elect-demo-0.0.1-SNAPSHOT.jar
+    path: ../target/leader-selection-demo-0.0.1-SNAPSHOT.jar
     env:
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }}'
