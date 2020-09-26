@@ -1,0 +1,17 @@
+server:
+  port: 8882
+
+leaderSelection:
+  instanceId: test-2
+  fixedDelay: 200
+  initialDelay:  100
+  heartBeatThreshold: 1000
+
+someOtherProcessor:
+  fixedDelay: 1000
+  initialDelay:  2000
+
+logging:
+  level:
+    ROOT: WARN
+    com.pksheldon4.sample.leaderselection: INFO
