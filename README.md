@@ -59,9 +59,17 @@ public class SomeOtherProcessor {
     @Scheduled(...schedule parameters...)
     public void doSomething() {
         if (shouldProcess) {
-            log.info("****** Some other Process - is being processed by Instance");
+            log.info("****** Some other Process - is being processed by instance");
         }
     }
 }
 ```
-*Note: The instance_id in the event is only used in this example so that it can be logged. The only meaningful property indicates if this instance isTheLeader.*
+
+
+### Running with Docker
+
+1. Build the docker image using the built-in SpringBoot [Cloud Native Buildpack Support](https://spring.io/blog/2020/08/14/creating-efficient-docker-images-with-spring-boot-2-3)  using the following command `mvn spring-boot:build-image`
+1. Start a postgres Database and 3 instances of the application using the included `docker-compose.yaml` file.
+
+*Note: I use Mysql in the default profile because I have it running on my laptop. I had issues using a MySql docker image so I'm using postgres for the docker profile.*
+ 

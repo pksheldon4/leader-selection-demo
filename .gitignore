@@ -6,7 +6,6 @@ target/
 .mvn/
 mvnw*
 
-
 ### STS ###
 .apt_generated
 .classpath
@@ -37,3 +36,5 @@ build/
 
 
 /h2/
+/postgres-db/
+/mysql-db/

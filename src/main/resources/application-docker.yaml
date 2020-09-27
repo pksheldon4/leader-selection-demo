@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/postgres
+    username: psheldon
+    password: password
+  flyway:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/postgres
+    user: psheldon
+    password: password
+    enabled: true
+    locations: classpath:db/migration
+
+logging:
+  level:
+    ROOT: WARN
+    com.pksheldon4.sample.leaderselection: DEBUG
