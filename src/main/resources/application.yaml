@@ -1,13 +1,12 @@
-mysql-options: '?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC'
 spring:
   application:
     name: leader_selection
+
 leaderSelection:
-  instanceId: insta-id
-  fixedDelay: 5000
-  initialDelay:  5000
-  heartBeatThreshold: 30000
+  fixedDelay: ${LEADER_FIXED_DELAY:5000}
+  initialDelay:  ${LEADER_INITIAL_DELAY:5000}
+  heartBeatThreshold: ${LEADER_HEARTBEAT_THRESHOLD:30000}
 
 someOtherProcessor:
-  fixedDelay: 2000
-  initialDelay:  5000
+  fixedDelay: ${OTHER_FIXED_DELAY:2000}
+  initialDelay:  ${OTHER_INITIAL_DELAY:5000}
