@@ -21,7 +21,7 @@ public class LeaderSelectionController {
 
     @GetMapping
     public String amIYourLeader() {
-        return iAmTheLEader ? "{leader: true}" : "{leader; false}";
+        return iAmTheLEader ? "{leader: true}" : "{leader: false}";
     }
 
 }
