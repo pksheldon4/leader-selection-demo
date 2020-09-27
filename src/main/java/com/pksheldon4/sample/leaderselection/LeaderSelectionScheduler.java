@@ -3,6 +3,7 @@ package com.pksheldon4.sample.leaderselection;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.CannotAcquireLockException;
+import org.springframework.dao.InvalidDataAccessResourceUsageException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +29,8 @@ public class LeaderSelectionScheduler {
             leaderSelectionProcessor.processLeaderSelection();
         } catch (CannotAcquireLockException e) {
             log.warn("### Unable to acquire lock. Will try again next time");
+        } catch (InvalidDataAccessResourceUsageException t) {
+            log.warn("### Exception ignored as it's thrown during shutdown");
         }
     }
 }
