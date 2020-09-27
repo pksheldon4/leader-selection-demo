@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   postgres-db:
     image: "postgres" # use latest official postgres version
@@ -15,7 +15,6 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - DB_HOST=postgres-db
-      -
     ports:
       - "8881:8080"
   instance_2:
