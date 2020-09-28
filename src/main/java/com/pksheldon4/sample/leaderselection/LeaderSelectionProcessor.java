@@ -2,6 +2,7 @@ package com.pksheldon4.sample.leaderselection;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
@@ -16,6 +17,7 @@ import java.util.UUID;
 
 @Slf4j
 @Component
+@ConditionalOnProperty(name = "leaderSelection.enabled", havingValue = "true", matchIfMissing = false)
 public class LeaderSelectionProcessor {
 
     public final String leaderInstanceId;

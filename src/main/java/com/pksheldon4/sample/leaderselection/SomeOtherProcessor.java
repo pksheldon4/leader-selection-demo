@@ -1,6 +1,7 @@
 package com.pksheldon4.sample.leaderselection;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -10,7 +11,14 @@ import org.springframework.stereotype.Component;
 public class SomeOtherProcessor {
 
     private boolean shouldProcess;
-    private String instanceId;
+
+    private String instanceId = "SomeOtherProcessor";
+
+    public SomeOtherProcessor(@Value("${someOtherProcessor.shouldProcess:true}") boolean shouldProcess) {
+        this.shouldProcess = shouldProcess;
+        log.info("################### SomeOtherProcessor - shouldProcess: {}", shouldProcess);
+    }
+
 
     @EventListener
     void handleReturnedEvent(LeaderSelectionEvent event) {

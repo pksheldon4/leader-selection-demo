@@ -1,6 +1,7 @@
 package com.pksheldon4.sample.leaderselection;
 
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;
@@ -10,6 +11,7 @@ import javax.persistence.LockModeType;
 import javax.persistence.QueryHint;
 import java.util.List;
 
+@ConditionalOnProperty(name = "leaderSelection.enabled", havingValue = "true", matchIfMissing = false)
 public interface LeaderSelectionRepository extends Repository<LeaderSelection, Integer> {
 
     @Lock(LockModeType.PESSIMISTIC_READ)
